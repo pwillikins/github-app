@@ -1,0 +1,6 @@
+{
+  "name": "github-app",
+  "version": "1.0.0",
+  "description": "A simple node app to perform Github API calls",
+  "main": "app.js"
+}
