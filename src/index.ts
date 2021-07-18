@@ -1,11 +1,10 @@
 import express from 'express'
+import router from './routes/github'
 
 const app = express()
 const port = 8080
 
-app.get("/", (req: express.Request, res: express.Response) => {
-    res.send("My Simple Github App")
-})
+app.use(router)
 
 // start the Express server
 app.listen(port, () => {
