@@ -2,7 +2,11 @@
   "name": "github-app",
   "version": "1.0.0",
   "description": "A simple node app to perform Github API calls",
-  "main": "app.js",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "express": "^4.17.1"
   }
