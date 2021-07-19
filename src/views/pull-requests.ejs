@@ -6,7 +6,7 @@
   <body>
     <div class="container">
       <h1 class="header">Pull Requests</h1>
-      <p style="color: grey; font-size: 20px;"># of Pull Requests for <span style="font-weight: bold; color: black;"><%= data[0].head.repo.name %></span>: <%= data.length %></p>
+      <p style="color: grey; font-size: 20px;">Number of Pull Requests for <span style="font-weight: bold; color: black;"><%= data.pulls[0].head.repo.name %></span>: <%= data.pulls.length %></p>
       <table class="table">
         <thead>
           <tr>
@@ -15,10 +15,10 @@
           </tr>
         </thead>
         <tbody>
-         <% data.forEach((pr, index) => { %>
+         <% data.pulls.forEach((pr, index) => { %>
            <tr>
              <td><%= index + 1 %></td>
-             <td><a href='pull-requests/<%= pr.id %>'><%=pr.title%></a></td>
+             <td><a href="pull-requests/<%= data.username %>/<%= data.project %>/<%= pr.number %>"><%=pr.title%></a></td>
            </tr>
          <% }) %>
         </tbody>
