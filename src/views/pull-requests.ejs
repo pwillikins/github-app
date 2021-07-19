@@ -10,24 +10,28 @@
 
     <main>
       <div class="container">
-        <h1 class="header"><%= data.pulls[0].head.repo.name %></h1>
-        <p style="color: grey; font-size: 20px;">Number of Pull Requests: <span style="color: black; font-weight: bold;"><%= data.pulls.length %></span></p>
-        <table class="table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Title</th>
-            </tr>
-          </thead>
-          <tbody>
-          <% data.pulls.forEach((pr, index) => { %>
-            <tr>
-              <td><%= index + 1 %></td>
-              <td><a style="color: black" href="pull-requests/<%= data.username %>/<%= data.project %>/<%= pr.number %>"><%=pr.title%></a></td>
-            </tr>
-          <% }) %>
-          </tbody>
-        </table>
+        <% if (locals.data) { %>
+          <h1 class="header"><%= data.pulls[0].head.repo.name %></h1>
+          <p style="color: grey; font-size: 20px;">Number of Pull Requests: <span style="color: black; font-weight: bold;"><%= data.pulls.length %></span></p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% data.pulls.forEach((pr, index) => { %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><a href="pull-requests/<%= data.username %>/<%= data.project %>/<%= pr.number %>"><%=pr.title%></a></td>
+              </tr>
+            <% }) %>
+            </tbody>
+          </table>
+        <% } else { %>
+          <p>Error: Resource Not Found</p>
+        <% } %>
       </div>
     </main>
   </body>
