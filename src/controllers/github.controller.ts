@@ -17,7 +17,7 @@ const routes = {
       const response = await getRepoPulls(req.body.url)
       return handleSuccess(res, 'pull-requests', successStatus, response)
     } catch (ex) {
-      return handleError(res, ex)
+      return handleError(res, 'pull-requests', ex)
     }
   },
 
@@ -32,7 +32,7 @@ const routes = {
       const response = await getPullRequest(params)
       return handleSuccess(res, 'pull-request', successStatus, response)
     } catch (ex) {
-      return handleError(res, ex)
+      return handleError(res, 'pull-request', ex)
     }
   }
 }
