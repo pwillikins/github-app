@@ -3,7 +3,7 @@ import express from 'express'
 import { handleError, handleSuccess } from '../utils/response-handler'
 
 import { getRepoPulls } from '../services/github/get-repo-pulls'
-import { getPullRequest } from '../services/github/get-pull-request'
+import { getPullRequest, IParams } from '../services/github/get-pull-request'
 
 const successStatus = 200
 
@@ -22,7 +22,7 @@ const routes = {
   },
 
   async getPullRequest(req: express.Request, res: express.Response) {
-    const params = {
+    const params: IParams = {
       username: req.params.username,
       project: req.params.project,
       number: req.params.number,
