@@ -4,6 +4,6 @@ export const handleSuccess = (res: express.Response, view: string, status: numbe
   return res.render(view, { data: data, status: status })
 }
 
-export const handleError = (res: express.Response, view: string, error: any) => {
-  return res.render(view, { error: error })
+export const handleError = (res: express.Response, view: string, error: any, status: number) => {
+  return res.render(view, { error: error, status: status })
 }
