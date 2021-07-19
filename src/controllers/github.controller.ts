@@ -2,20 +2,35 @@ import express from 'express'
 
 import { handleError, handleSuccess } from '../utils/response-handler'
 
-import { getRepoPulls } from '../services/github/get-github-repo'
+import { getRepoPulls } from '../services/github/get-repo-pulls'
+import { getPullRequest } from '../services/github/get-pull-request'
 
 const successStatus = 200
 
 const routes = {
   index(req: express.Request, res: express.Response) {
-    res.send('My Simple Github App')
+    return res.render('index')
   },
 
   async getPulls(req: express.Request, res: express.Response) {
     try {
-      const response = await getRepoPulls('')
+      const response = await getRepoPulls(req.body.url)
+      return handleSuccess(res, 'pull-requests', successStatus, response)
+    } catch (ex) {
+      return handleError(res, ex)
+    }
+  },
 
-      return handleSuccess(res, successStatus, response.data)
+  async getPullRequest(req: express.Request, res: express.Response) {
+    const params = {
+      username: req.params.username,
+      project: req.params.project,
+      number: req.params.number,
+    }
+    
+    try {
+      const response = await getPullRequest(params)
+      return handleSuccess(res, 'pull-request', successStatus, response)
     } catch (ex) {
       return handleError(res, ex)
     }
