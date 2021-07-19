@@ -11,6 +11,8 @@ import GithubController from '../controllers/github.controller'
 router.get("/", GithubController.index)
 
 // GET Github repo pull requests.
-router.get("/pull-requests", GithubController.getPulls)
+router.post("/pull-requests", GithubController.getPulls)
+
+router.get("/pull-requests/:username/:project/:number", GithubController.getPullRequest)
 
 export default router
