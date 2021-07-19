@@ -4,6 +4,10 @@
     <%- include('./partials/head'); %>
   </head>
   <body>
+    <header>
+      <%- include('./partials/nav'); %>
+    </header>
+    
     <div class="container">
       <h1 class="header"><%= data.pull.title %></h1>
       <p style="color: grey; font-size: 20px;">Number of Commits: <span style="font-weight: bold; color: black;"><%= data.commits.length %></span></p>

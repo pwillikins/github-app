@@ -4,8 +4,12 @@
     <%- include('./partials/head'); %>
   </head>
   <body>
+    <header>
+      <%- include('./partials/nav'); %>
+    </header>
+
     <div class="container">
-      <h1 class="header">My Simple Github App</h1>
+      <h3 class="header">Enter github url to search for pull requests</h3>
       <form method="post" action="/pull-requests">
         <input type="text" name="url">
         <input type="submit" value="Submit">
