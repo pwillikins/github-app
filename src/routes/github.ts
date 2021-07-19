@@ -13,6 +13,7 @@ router.get("/", GithubController.index)
 // GET Github repo pull requests.
 router.post("/pull-requests", GithubController.getPulls)
 
+// GET Github individual pull request
 router.get("/pull-requests/:username/:project/:number", GithubController.getPullRequest)
 
 export default router
