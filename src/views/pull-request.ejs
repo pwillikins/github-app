@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head'); %>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="header"><%= data.pull.title %></h1>
+      <p style="color: grey; font-size: 20px;">Number of Commits: <span style="font-weight: bold; color: black;"><%= data.commits.length %></span></p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Commit Message</th>
+          </tr>
+        </thead>
+        <tbody>
+         <% data.commits.forEach((commit, index) => { %>
+           <tr>
+             <td><%= index + 1 %></td>
+             <td><%= commit.commit.message %></td>
+           </tr>
+         <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
